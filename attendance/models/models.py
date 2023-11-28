@@ -46,10 +46,9 @@ class attendance(models.Model):
             rec.state = 'approve'
 
     def action_Confirm(self):
-        # template = self.env.ref('attendance.mail_template')
-        # for rec in self:
-        #     template.send_mail(rec.id)
-        print(self.env['attendance.attendance'].search([]))
+         template = self.env.ref('attendance.mail_template')
+         for rec in self:
+             template.send_mail(rec.id)
         for rec in self:
             rec.state = 'waiting'
 
