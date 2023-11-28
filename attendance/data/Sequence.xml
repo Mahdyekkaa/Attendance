@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="seq_attendance" model="ir.sequence">
+            <field name="name">attendance Sequence</field>
+            <field name="code">attendance.Sequence</field>
+            <field name="prefix">REQ</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

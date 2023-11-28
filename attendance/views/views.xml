@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record id="attendance_class_form_view" model="ir.ui.view">
+            <field name="name">attendance.form</field>
+            <field name="model">attendance.attendance</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <header>
+                        <button name="action_Confirm" type="object" string="Confirm" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="employee"/>
+                                <field name="requested"/>
+                                <field name="type"/>
+                                <field name="reason"/>
+                            </group>
+                            <group>
+                                <field name="action"/>
+                                <field name="attendance"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="attendance_hr">
+            <field name="name">attendance list</field>
+            <field name="model">attendance.attendance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_window">
+            <field name="name">Attendance Modification</field>
+            <field name="res_model">attendance.attendance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                name="Attendance Modification Request"
+                id="attendance_root"
+                sequence="15"
+                parent="hr_attendance.menu_hr_attendance_root"
+                action="action_window"/>
+    </data>
+</odoo>
